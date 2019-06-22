@@ -1,0 +1,61 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="">
+    <title>Create/Update</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+  <!-- XDSoft DateTimePicker -->
+        <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+
+
+    </head>
+  <body>
+        <div  class="container" >
+
+          <h1 class="text-center"> Create New / Update Book </h1>
+
+            <form  class="form-contact" action="" method="POST">
+                  {% csrf_token %}
+
+
+                  <label class="form-group" for="title">Title:</label>
+                  <input autocomplete="off" class="form-control" type="text" name="title" value="{{book.title}}"><br>
+
+                  <label class="form-group" for="author">Author:</label>
+                  <input autocomplete="off" class="form-control" type="text" name="author" value="{{book.author}}"><br>
+
+                  <label class="form-group" for="date_publish">Date Publish:</label>
+                  <input id="id_date_publish" autocomplete="off" class="form-control" type="text" name="date_publish" value="{{book.date_publish|date:'Y-m-d'}}"><br>
+
+                  <label class="form-group" for="number_of_pages">Number of Pages:</label>
+                  <input autocomplete="off" class="form-control" type="text" name="number_of_pages" value="{{book.number_of_pages}}"><br>
+
+                  <label class="form-group" for="type_of_book">Type of Book:</label><br>
+                  {{form.type_of_book}}
+                  <br>
+                  <br>
+                  <input type="submit" value="Submit" class="btn btn-primary">
+
+            </form>
+        </div>
+        <script>
+            $( document ).ready(function() {
+                $("#id_date_publish").datepicker({
+                    format: 'yyyy-mm-dd'
+                });
+            });
+            </script>
+    </body
+</html>
